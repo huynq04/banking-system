@@ -14,36 +14,12 @@ class AuthenticationController extends Controller
     {
     }
 
-//    public function register(RegisterUserRequest $request): JsonResponse
-//    {
-//
-//        $userDto = UserDto::fromAPiFormRequest($request);
-//        $user = $this->userService->createUser($userDto);
-//
-////        return $this->sendSuccess(['user' => $user], "Registration Successful");
-//
-//        return response()->json([
-//            'user' => $user,
-//            'success' => true,
-//            'message' => 'Registration Successful'
-//        ]);
-//    }
-
-
-
     public function register(RegisterUserRequest $request): JsonResponse
     {
+        $userDto = UserDto::fromAPiFormRequest($request);
 
-//        $userDto = UserDto::fromAPiFormRequest($request);
-//        $user = $this->userService->createUser($userDto);
-//        dump($user);
-//        return $this->sendSuccess(['user' => $user], "Registration Successful");
+        $user = $this->userService->createUser($userDto);
 
-            return response()->json([
-//                'user' => $user,
-                'success' => true,
-                'message' => 'Registration Successful'
-            ]);
+        return $this->sendSuccess(['user' => $user], "Registration Successful");
     }
-
 }
