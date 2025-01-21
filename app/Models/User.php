@@ -24,6 +24,7 @@ class User extends Authenticatable
         'email',
         'password',
         'phone_number',
+        'pin',
     ];
 
     /**
@@ -43,6 +44,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
 
     public function transactions(): HasMany

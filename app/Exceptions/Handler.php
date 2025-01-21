@@ -128,13 +128,88 @@ class Handler extends ExceptionHandler
                 ]);
             }
 
-//            if ($e instanceof MethodNotAllowedHttpException) {
+            if ($e instanceof MethodNotAllowedHttpException) {
+                return $this->apiResponse([
+                    'message' => $e->getMessage(),
+                    'success' => false,
+                    'exception' => $e,
+                    'error_code' => Response::HTTP_METHOD_NOT_ALLOWED,
+                ], Response::HTTP_METHOD_NOT_ALLOWED);
+            }
+
+            if ($e instanceof PinNotSetException) {
+                return $this->apiResponse([
+                    'message' => $e->getMessage(),
+                    'success' => false,
+                    'exception' => $e,
+                    'error_code' => Response::HTTP_BAD_REQUEST,
+                ], Response::HTTP_BAD_REQUEST);
+            }
+            if ($e instanceof InvalidPinLengthException) {
+                return $this->apiResponse([
+                    'message' => $e->getMessage(),
+                    'success' => false,
+                    'exception' => $e,
+                    'error_code' => Response::HTTP_BAD_REQUEST,
+                ], Response::HTTP_BAD_REQUEST);
+            }
+            if ($e instanceof PinHasAlreadyBeenSetException) {
+                return $this->apiResponse([
+                    'message' => $e->getMessage(),
+                    'success' => false,
+                    'exception' => $e,
+                    'error_code' => Response::HTTP_BAD_REQUEST,
+                ], Response::HTTP_BAD_REQUEST);
+            }
+            if ($e instanceof AccountNumberExistsException) {
+                return $this->apiResponse([
+                    'message' => $e->getMessage(),
+                    'success' => false,
+                    'exception' => $e,
+                    'error_code' => Response::HTTP_BAD_REQUEST,
+                ], Response::HTTP_BAD_REQUEST);
+            }
+//            if ($e instanceof DepositAmountToLowException) {
 //                return $this->apiResponse([
 //                    'message' => $e->getMessage(),
 //                    'success' => false,
 //                    'exception' => $e,
-//                    'error_code' => Response::HTTP_METHOD_NOT_ALLOWED,
-//                ], Response::HTTP_METHOD_NOT_ALLOWED);
+//                    'error_code' => Response::HTTP_BAD_REQUEST,
+//                ], Response::HTTP_BAD_REQUEST);
+//            }
+//            if ($e instanceof InvalidAccountNumberException) {
+//                return $this->apiResponse([
+//                    'message' => $e->getMessage(),
+//                    'success' => false,
+//                    'exception' => $e,
+//                    'error_code' => Response::HTTP_BAD_REQUEST,
+//                ], Response::HTTP_BAD_REQUEST);
+//            }
+//            if ($e instanceof WithdrawalAmountTooLowException) {
+//                return $this->apiResponse([
+//                    'message' => $e->getMessage(),
+//                    'success' => false,
+//                    'exception' => $e,
+//                    'error_code' => Response::HTTP_BAD_REQUEST,
+//                ], Response::HTTP_BAD_REQUEST);
+//            }
+
+//            if ($e instanceof InvalidPinException) {
+//                return $this->apiResponse([
+//                    'message' => $e->getMessage(),
+//                    'success' => false,
+//                    'exception' => $e,
+//                    'error_code' => Response::HTTP_BAD_REQUEST,
+//                ], Response::HTTP_BAD_REQUEST);
+//            }
+
+//            if ($e instanceof InsufficientBalanceException) {
+//                return $this->apiResponse([
+//                    'message' => $e->getMessage(),
+//                    'success' => false,
+//                    'exception' => $e,
+//                    'error_code' => Response::HTTP_BAD_REQUEST,
+//                ], Response::HTTP_BAD_REQUEST);
 //            }
 
             if ($e instanceof Exception) {
