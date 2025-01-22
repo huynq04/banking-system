@@ -113,6 +113,7 @@ class UserDto implements DtoInterface
 
     public static function fromModel(Model $model): DtoInterface
     {
+        // $model is an instance of User
         $userDto = new UserDto();
         $userDto->setId($model->id);
         $userDto->setName($model->name);

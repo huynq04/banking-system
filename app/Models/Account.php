@@ -11,6 +11,12 @@ class Account extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'account_number',
+        'balance',
+        'user_id',
+    ];
+
     public function owner(): BelongsTo
     {
         return $this->belongsTo(User::class);
