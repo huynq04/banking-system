@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Dtos\UserDto;
+use App\Dto\UserDto;
 use App\Exceptions\AccountNumberExistsException;
 use App\Services\AccountService;
 use Illuminate\Http\JsonResponse;

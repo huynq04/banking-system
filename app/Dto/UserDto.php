@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Dtos;
+namespace App\Dto;
 
 use App\Interfaces\DtoInterface;
 use Carbon\Carbon;

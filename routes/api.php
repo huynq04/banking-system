@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AccountDepositController;
+use App\Http\Controllers\AccountWithdrawalController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\PinController;
+use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,4 +41,13 @@ Route::middleware("auth:sanctum")->group(function () {
             Route::post('generate/account-number', [AccountController::class, 'store']);
         });
     });
+
+    Route::middleware('has.set.pin')->group(function () {
+        Route::prefix('account')->group((function () {
+            Route::post('deposit', [AccountDepositController::class, 'store']);
+            Route::post('withdraw', [AccountWithdrawalController::class, 'store']);
+            Route::post('transfer', [TransferController::class, 'store']);
+        }));
+    });
+
 });

@@ -10,6 +10,8 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function owner(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');

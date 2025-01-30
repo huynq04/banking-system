@@ -2,7 +2,7 @@
 
 namespace App\Interfaces;
 
-use App\Dtos\UserDto;
+use App\Dto\UserDto;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

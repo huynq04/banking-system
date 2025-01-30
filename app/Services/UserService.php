@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Dtos\UserDto;
+use App\Dto\UserDto;
 use App\Exceptions\InvalidPinLengthException;
 use App\Exceptions\PinHasAlreadyBeenSetException;
 use App\Exceptions\PinNotSetException;
