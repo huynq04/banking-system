@@ -5,6 +5,7 @@ use App\Http\Controllers\AccountDepositController;
 use App\Http\Controllers\AccountWithdrawalController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\PinController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,10 @@ Route::middleware("auth:sanctum")->group(function () {
             Route::post('withdraw', [AccountWithdrawalController::class, 'store']);
             Route::post('transfer', [TransferController::class, 'store']);
         }));
+
+        Route::prefix('transaction')->group(function () {
+            Route::get('history', [TransactionController::class, 'index']);
+        });
     });
 
 });

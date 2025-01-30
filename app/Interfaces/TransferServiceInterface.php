@@ -11,4 +11,6 @@ interface TransferServiceInterface
     public function modelQuery(): Builder;
 
     public function createTransfer(TransferDto $transferDto): Transfer;
+
+    public function generateReference(): string;
 }
